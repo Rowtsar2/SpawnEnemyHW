@@ -1,13 +1,20 @@
 using System;
 using UnityEngine;
 
+[RequireComponent(typeof(Mover))]
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float _speed;
-    
-    public float Speed { get; private set; }
 
-    public event Action<Enemy, Transform> Spawn;
+    private Mover _mover;
+    
+    private void Awake()
+    {
+        _mover = GetComponent<Mover>();
+    }
+
+    public float Speed { get; private set; }
+    
     public event Action<Enemy> ComeToTargetPoint;
     
     private void Start()
@@ -19,6 +26,6 @@ public class Enemy : MonoBehaviour
     
     public void SetDirection(Transform targetPoint)
     {
-        Spawn?.Invoke(this, targetPoint);
+        _mover.Move(this, targetPoint);
     }
 }

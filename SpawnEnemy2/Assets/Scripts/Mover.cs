@@ -1,31 +1,12 @@
-using System;
 using UnityEngine;
 
-[RequireComponent(typeof(Enemy))]
 public class Mover : MonoBehaviour
 {
-    private Enemy _enemy;
-
     private Enemy _enemyForMove;
     private Transform _enemyPosition;
     private Transform _targetPosition;
 
-    private void Awake()
-    {
-        _enemy = GetComponent<Enemy>();
-    }
-
-    private void OnEnable()
-    {
-        _enemy.Spawn += Move;
-    }
-    
-    private void OnDisable()
-    {
-        _enemy.Spawn -= Move;
-    }
-
-    private void Move(Enemy enemy, Transform target)
+    public void Move(Enemy enemy, Transform target)
     {
         _enemyForMove = enemy;
         _enemyPosition = enemy.transform;

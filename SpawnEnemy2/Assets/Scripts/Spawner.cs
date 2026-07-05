@@ -1,4 +1,4 @@
-using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -8,7 +8,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private List<Enemy> _enemies;
     [SerializeField] private Transform[] _spawnPoints;
     [SerializeField] private Transform[] _targetPoints;
-    [SerializeField] private float _repeatRate = 2f;
+    [SerializeField] private float _repeatRate = 0.1f;
     [SerializeField] private int _poolCapacity = 30;
     [SerializeField] private int _maxPoolSize = 30;
     
@@ -23,12 +23,22 @@ public class Spawner : MonoBehaviour
             actionOnDestroy: (enemy) => Destroy(enemy.gameObject),
             collectionCheck: true,
             defaultCapacity: _poolCapacity,
-            maxSize: _maxPoolSize);
+            maxSize: _maxPoolSize
+            );
     }
 
     private void Start()
     {
-        InvokeRepeating(nameof(GetEnemy), 0, _repeatRate);
+        StartCoroutine(SpawnRoutine());
+    }
+
+    private IEnumerator SpawnRoutine()
+    {
+        while (true)
+        {
+            GetEnemy();
+            yield return new WaitForSeconds(_repeatRate);
+        }
     }
     
     private void ActionOnGet(Enemy enemy)
@@ -51,7 +61,10 @@ public class Spawner : MonoBehaviour
     
     private void GetEnemy()
     {
-        _pool.Get();
+        if (_pool.CountActive < _maxPoolSize)
+        {
+            _pool.Get();
+        }
     }
     
     private Enemy GetRandomEnemy() => Instantiate(_enemies[UnityEngine.Random.Range(0, _enemies.Count)]);

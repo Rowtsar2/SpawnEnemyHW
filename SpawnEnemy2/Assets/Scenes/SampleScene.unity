@@ -1178,7 +1178,7 @@ MonoBehaviour:
   - {fileID: 6599684}
   - {fileID: 373092851}
   - {fileID: 1334744291}
-  _repeatRate: 2
+  _repeatRate: 0.1
   _poolCapacity: 30
   _maxPoolSize: 30
 --- !u!1 &2099551705
