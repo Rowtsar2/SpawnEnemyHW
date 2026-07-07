@@ -354,9 +354,13 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.62f3/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.62f3/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Models/Kevin Iglesias/Characters/Humanoid Giant/Demo Scene/Scripts/HumanoidGiantDemo.cs"
+"Assets/Scripts/BlackEnemy.cs"
+"Assets/Scripts/BlueEnemy.cs"
 "Assets/Scripts/Enemy.cs"
 "Assets/Scripts/Mover.cs"
+"Assets/Scripts/RedEnemy.cs"
 "Assets/Scripts/Spawner.cs"
+"Assets/Scripts/Target.cs"
 -langversion:9.0
 /deterministic
 /optimize+

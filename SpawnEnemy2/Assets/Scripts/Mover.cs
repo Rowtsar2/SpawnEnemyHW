@@ -15,10 +15,10 @@ public class Mover : MonoBehaviour
 
     private void Update()
     {
-        _enemyForMove.transform.position = Vector3.MoveTowards(_enemyPosition.position, _targetPosition.position,
+        _enemyForMove.transform.position = Vector3.Lerp(_enemyPosition.position, _targetPosition.position,
         _enemyForMove.Speed * Time.deltaTime);
-        
-        if (Vector3.Distance(_enemyPosition.position, _targetPosition.position) < 0.1f)
+
+        if (Vector3.Distance(_enemyPosition.position, _targetPosition.position) < 0.2f)
         {
             _enemyForMove.ComeToTarget();
         }
