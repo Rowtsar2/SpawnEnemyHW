@@ -361,6 +361,11 @@
 "Assets/Scripts/RedEnemy.cs"
 "Assets/Scripts/Spawner.cs"
 "Assets/Scripts/Target.cs"
+"Assets/ScriptsHWBadCod/Bullet.cs"
+"Assets/ScriptsHWBadCod/Gun.cs"
+"Assets/ScriptsHWBadCod/MoverCorrect.cs"
+"Assets/ScriptsHWBadCod/Shooter.cs"
+"Assets/ScriptsHWBadCod/TargetForShoot.cs"
 -langversion:9.0
 /deterministic
 /optimize+
